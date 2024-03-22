@@ -2,23 +2,20 @@ extends KinematicBody2D
 
 export var speed = 250
 
-export var jump_speed = -450
+export var jump_speed = -550
 var gravity = 900
 
 var direction := Vector2.ZERO
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _input(event):
-	
 	direction.x = 0
-	
 	if Input.is_action_pressed("right"):
 		direction.x += speed
-
-#	NEED MOVE LEFT CODE
+	if Input.is_action_pressed("left"):
+		direction.x -= speed
 
 func _process(delta):
 	
