@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 25 )
 
-[node name="cristal" type="Area2D"]
+[node name="cristal" type="Area2D" groups=["collect"]]
 script = ExtResource( 2 )
 
 [node name="crystal" type="Sprite" parent="."]
