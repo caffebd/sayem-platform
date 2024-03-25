@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/props/Comfortaa-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
 font_data = ExtResource( 2 )
 
 [node name="UI" type="Control"]
@@ -24,4 +28,17 @@ text = "Crystal: 0"
 wait_time = 3.0
 one_shot = true
 
+[node name="time_label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -186.0
+margin_top = 16.0
+margin_right = -25.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 2 )
+text = "Time: 0"
+
+[node name="game_timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="coinTimer" to="." method="_on_coinTimer_timeout"]
+[connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

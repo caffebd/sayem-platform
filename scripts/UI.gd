@@ -4,6 +4,7 @@ var my_crystal = 0
 
 func _ready():
 	$coinTimer.start()
+	$game_timer.start()
 	GlobalSignals.connect("change_score", self, "_change_score")
 
 func _change_score():
@@ -13,3 +14,6 @@ func _change_score():
 func _on_coinTimer_timeout():
 	GlobalSignals.emit_signal("load_coin")
 	$coinTimer.start()
+
+func _on_game_timer_timeout():
+	pass
