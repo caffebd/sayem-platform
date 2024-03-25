@@ -5,12 +5,13 @@
 [ext_resource path="res://assets/props/Titlebackground.png" type="Texture" id=3]
 [ext_resource path="res://scenes/cristal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/World.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 542.5, 63 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 506, 294.5 )
@@ -62,9 +63,3 @@ position = Vector2( 46, 153 )
 position = Vector2( 874, 332 )
 
 [node name="all_coin" type="Node2D" parent="."]
-
-[node name="coin" parent="all_coin" instance=ExtResource( 6 )]
-position = Vector2( 358, -65 )
-
-[node name="coin2" parent="all_coin" instance=ExtResource( 6 )]
-position = Vector2( 678, -171 )

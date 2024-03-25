@@ -19,3 +19,9 @@ margin_right = 214.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 1 )
 text = "Crystal: 0"
+
+[node name="coinTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="coinTimer" to="." method="_on_coinTimer_timeout"]
