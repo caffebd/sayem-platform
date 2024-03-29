@@ -8,7 +8,7 @@ export var gravity = 900
 var direction := Vector2.ZERO
 
 func _ready():
-	pass
+	GlobalSignals.connect("player_fly", self, "_player_fly")
 
 func _input(event):
 	direction.x = 0
@@ -27,4 +27,6 @@ func _process(delta):
 
 	direction = move_and_slide(direction,  Vector2.UP)
 
-
+func _player_fly():
+	gravity = 0
+	

@@ -1,10 +1,14 @@
 extends Control
 
 var my_crystal = 0
+var game_time = 10
+var fly_time = 5
 
 func _ready():
 	$coinTimer.start()
 	$game_timer.start()
+	$time_label.text = "Time: "+str(game_time)
+	GlobalSignals.connect("fly_power", self, "_fly_power")
 	GlobalSignals.connect("change_score", self, "_change_score")
 
 func _change_score():
@@ -16,4 +20,19 @@ func _on_coinTimer_timeout():
 	$coinTimer.start()
 
 func _on_game_timer_timeout():
-	pass
+	game_time -= 1
+	$time_label.text = "Time: "+str(game_time)
+	if game_time == 0:
+		$game_timer.stop()
+		$coinTimer.stop()
+		GlobalSignals.emit_signal("coin_destroy")
+
+func _fly_power():
+	$flyLabel.text = ""+str(fly_time)
+	$flyTimer.start()
+
+func _on_flyTimer_timeout():
+	fly_time -= 1
+	$flyLabel.text = ""+str(fly_time)
+	if fly_time == 0:
+		$flyTimer.stop()
