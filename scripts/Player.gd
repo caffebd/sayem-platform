@@ -28,6 +28,7 @@ func _process(delta):
 	direction = move_and_slide(direction,  Vector2.UP)
 
 func _fly_power():
+	jump_speed = 0
 	direction.y += speed
 
 

@@ -55,7 +55,7 @@ position = Vector2( 607, 244 )
 position = Vector2( 846, 132 )
 
 [node name="log7" parent="all_lig" instance=ExtResource( 1 )]
-position = Vector2( 415, 119 )
+position = Vector2( 313, 89 )
 
 [node name="log5" parent="all_lig" instance=ExtResource( 1 )]
 position = Vector2( 46, 153 )
