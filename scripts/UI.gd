@@ -36,3 +36,4 @@ func _on_flyTimer_timeout():
 	$flyLabel.text = ""+str(fly_time)
 	if fly_time == 0:
 		$flyTimer.stop()
+		GlobalVars.fly_power = false
