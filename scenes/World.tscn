@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/log.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/props/Titlebackground.png" type="Texture" id=3]
-[ext_resource path="res://scenes/cristal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/fly_key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/World.gd" type="Script" id=7]
@@ -28,15 +28,6 @@ shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 596, 408 )
-
-[node name="cristal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 823, 88 )
-
-[node name="cristal2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 899, 290 )
-
-[node name="cristal3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 229, 212 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
@@ -64,6 +55,18 @@ position = Vector2( 46, 153 )
 position = Vector2( 874, 332 )
 
 [node name="all_coin" type="Node2D" parent="."]
+
+[node name="coin" parent="all_coin" instance=ExtResource( 4 )]
+position = Vector2( 56, 112 )
+
+[node name="coin2" parent="all_coin" instance=ExtResource( 4 )]
+position = Vector2( 888, 288 )
+
+[node name="coin3" parent="all_coin" instance=ExtResource( 4 )]
+position = Vector2( 840, 88 )
+
+[node name="coin4" parent="all_coin" instance=ExtResource( 4 )]
+position = Vector2( 344, 48 )
 
 [node name="fly_key" parent="." instance=ExtResource( 6 )]
 position = Vector2( 456, 273 )

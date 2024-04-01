@@ -20,21 +20,26 @@ func _input(event):
 		$PlayerAnim.flip_h = true
 		direction.x -= speed
 	if GlobalVars.fly_power == true:
-		if Input.is_action_just_pressed("jump"):
+		direction.y = 0
+		if Input.is_action_pressed("jump"):
 			direction.y -= speed
-		if Input.is_action_just_pressed("down"):
+		if Input.is_action_pressed("down"):
 				direction.y += speed
+	else:
+			gravity = 900
+
 
 func _process(delta):
 	direction.y += gravity * delta
 	if GlobalVars.fly_power == false:
 		if Input.is_action_just_pressed("jump"):
-			if is_on_floor():
+			if is_on_floor() and not GlobalVars.fly_power:
 				direction.y = jump_speed
 
 	direction = move_and_slide(direction,  Vector2.UP)
 
 func _fly_power():
+	gravity = 0
 	GlobalVars.fly_power = true
 
 
