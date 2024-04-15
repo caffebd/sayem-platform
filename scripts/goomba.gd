@@ -23,3 +23,13 @@ func _process(delta):
 
 func _on_walkTime_timeout():
 	walk_speed *= -1
+
+
+func _on_enemyDie_body_entered(body):
+	if body.is_in_group("player"):
+		queue_free()
+
+
+func _on_killPlayer_body_entered(body):
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()
