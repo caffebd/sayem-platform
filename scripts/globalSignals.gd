@@ -7,3 +7,5 @@ signal load_coin()
 signal coin_destroy()
 
 signal fly_power()
+
+signal push_up()

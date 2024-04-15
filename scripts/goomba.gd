@@ -27,6 +27,7 @@ func _on_walkTime_timeout():
 
 func _on_enemyDie_body_entered(body):
 	if body.is_in_group("player"):
+		GlobalSignals.emit_signal("push_up")
 		queue_free()
 
 
