@@ -72,5 +72,15 @@ position = Vector2( 344, 48 )
 [node name="fly_key" parent="." instance=ExtResource( 6 )]
 position = Vector2( 456, 273 )
 
-[node name="goomba" parent="." instance=ExtResource( 8 )]
+[node name="goomba" type="Node2D" parent="."]
+
+[node name="goomba" parent="goomba" instance=ExtResource( 8 )]
+position = Vector2( 136, 456 )
+
+[node name="goomba2" parent="goomba" instance=ExtResource( 8 )]
 position = Vector2( 408, 456 )
+walk_time = 3
+
+[node name="goomba3" parent="goomba" instance=ExtResource( 8 )]
+position = Vector2( 840, 456 )
+walk_time = 2
