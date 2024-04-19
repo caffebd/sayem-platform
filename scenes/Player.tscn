@@ -14,15 +14,22 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 19, 51.5 )
+extents = Vector2( 12, 29.5 )
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 2 )
 
 [node name="PlayerAnim" type="AnimatedSprite" parent="."]
+position = Vector2( -7.75, 24 )
+scale = Vector2( 0.621951, 0.563636 )
 frames = SubResource( 1 )
 animation = "walk"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 2.5 )
+position = Vector2( -7, 25.5 )
 shape = SubResource( 2 )
+
+[node name="playerCam" type="Camera2D" parent="."]
+position = Vector2( -5, -15 )
+current = true
+zoom = Vector2( 0.75, 0.75 )

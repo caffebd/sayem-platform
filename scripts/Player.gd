@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 export var speed = 350
 
-export var jump_speed = -550
-export var gravity = 900
+export var jump_speed = -450
+export var gravity = 1000
 
 var pushed = false
 
