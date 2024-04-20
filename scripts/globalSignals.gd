@@ -9,3 +9,6 @@ signal coin_destroy()
 signal fly_power()
 
 signal push_up()
+
+signal sign_show(text)
+signal sign_hide()

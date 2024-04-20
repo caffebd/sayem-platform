@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tileset/tileWorld.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/goomba.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/fly_key.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/sign.tscn" type="PackedScene" id=7]
 
 [node name="tileWorld" type="Node2D"]
 
@@ -52,3 +54,9 @@ position = Vector2( 48, 456 )
 
 [node name="fly_key" parent="." instance=ExtResource( 5 )]
 position = Vector2( 416, 256 )
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+
+[node name="sign2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 928, 288 )
+sign_text = "WASD to move"

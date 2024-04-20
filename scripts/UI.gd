@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var my_crystal = 0
 var game_time = 10
@@ -10,6 +10,15 @@ func _ready():
 	$time_label.text = "Time: "+str(game_time)
 	GlobalSignals.connect("fly_power", self, "_fly_power")
 	GlobalSignals.connect("change_score", self, "_change_score")
+	GlobalSignals.connect("sign_show",self, "_sign_show")
+	GlobalSignals.connect("sign_hide", self, "_sign_hide")
+
+func _sign_show(text):
+	$signText.text = text
+	$signText.visible = true
+
+func _sign_hide():
+	$signText.visible = false
 
 func _change_score():
 	my_crystal += 1
