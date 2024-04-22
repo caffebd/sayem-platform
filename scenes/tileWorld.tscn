@@ -68,3 +68,7 @@ sign_text = "WASD to move"
 position = Vector2( 876, 344 )
 enemies_path = NodePath("../enemies")
 player_path = NodePath("../Player")
+
+[node name="sign" parent="." instance=ExtResource( 7 )]
+position = Vector2( 821, 194 )
+sign_text = "U to attack by ufo"
