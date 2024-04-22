@@ -34,3 +34,9 @@ func _on_enemyDie_body_entered(body):
 func _on_killPlayer_body_entered(body):
 	if body.is_in_group("player"):
 		get_tree().reload_current_scene()
+
+
+func _on_enemyDie_area_entered(area):
+	if area.is_in_group("ufo"):
+		GlobalSignals.emit_signal("ufo_return")
+		queue_free()

@@ -30,6 +30,8 @@ func _input(event):
 				direction.y += speed
 	else:
 			gravity = 900
+	if Input.is_action_just_pressed("ufo_attak"):
+		GlobalSignals.emit_signal("ufo_attack")
 
 func _push_up():
 	pushed = true

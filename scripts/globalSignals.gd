@@ -12,3 +12,6 @@ signal push_up()
 
 signal sign_show(text)
 signal sign_hide()
+
+signal ufo_attack()
+signal ufo_return()
