@@ -38,9 +38,12 @@ func _push_up():
 
 func _process(delta):
 	direction.y += gravity * delta
+	
+	var is_grounded = $RayCast2D.is_colliding()
+	
 	if GlobalVars.fly_power == false:
-		if Input.is_action_just_pressed("jump"):
-			if is_on_floor() and not GlobalVars.fly_power:
+		if Input.is_action_just_pressed("jump") and not GlobalVars.fly_power:
+			if is_grounded:
 				direction.y = jump_speed
 	if pushed:
 		direction.y = jump_speed/2
