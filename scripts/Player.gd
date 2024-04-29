@@ -9,29 +9,52 @@ var pushed = false
 
 var direction := Vector2.ZERO
 
+var attacking = false
+
 func _ready():
 	GlobalSignals.connect("push_up", self, "_push_up")
 	GlobalSignals.connect("fly_power", self, "_fly_power")
 
 func _input(event):
+	
 	direction.x = 0
+	
 	if Input.is_action_pressed("right"):
 		$PlayerAnim.flip_h = false
+		$attackNode.scale.x = 1
 		direction.x += speed
+		if not attacking:
+			$PlayerAnim.play("walk")
 		
-	if Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("left"):
 		$PlayerAnim.flip_h = true
+		$attackNode.scale.x = -1
 		direction.x -= speed
+		if not attacking:
+			$PlayerAnim.play("walk")
+	else:
+		if not attacking:
+			$PlayerAnim.play("Idle")
+			
 	if GlobalVars.fly_power == true:
 		direction.y = 0
-		if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump"):
 			direction.y -= speed
-		if Input.is_action_pressed("down"):
+			
+	
+	if Input.is_action_pressed("down"):
 				direction.y += speed
-	else:
-			gravity = 900
+		
 	if Input.is_action_just_pressed("ufo_attak"):
 		GlobalSignals.emit_signal("ufo_attack")
+	
+	if Input.is_action_just_pressed("attack"):
+		attacking = true
+		$PlayerAnim.set_frame(0)
+		$PlayerAnim.play("attack")
+		
+		$"%attackCollision".disabled = false
+
 
 func _push_up():
 	pushed = true
@@ -55,5 +78,7 @@ func _fly_power():
 	gravity = 0
 	GlobalVars.fly_power = true
 
-
-
+func _on_PlayerAnim_animation_finished():
+	if $PlayerAnim.animation == "attack":
+		attacking = false
+		$"%attackCollision".disabled = true
