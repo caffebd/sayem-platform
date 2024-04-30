@@ -11,9 +11,12 @@ var direction := Vector2.ZERO
 
 var attacking = false
 
+var used_portal = false
+
 func _ready():
 	GlobalSignals.connect("push_up", self, "_push_up")
 	GlobalSignals.connect("fly_power", self, "_fly_power")
+	GlobalSignals.connect("use_portal", self, "_use_portal")
 
 func _input(event):
 	
@@ -55,6 +58,23 @@ func _input(event):
 		
 		$"%attackCollision".disabled = false
 
+func _use_portal(new_position):
+	direction = Vector2.ZERO
+	visible = false
+	call_deferred("_collision_off")
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", new_position, 1.0)
+	yield (tween, "finished")
+	call_deferred("_collision_on")
+	
+	visible = true
+
+func _collision_off():
+	$PlayerCollision.disabled = true
+	$"%attackCollision".disabled = true
+
+func _collision_on():
+	$PlayerCollision.disabled = false
 
 func _push_up():
 	pushed = true

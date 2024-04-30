@@ -15,3 +15,5 @@ signal sign_hide()
 
 signal ufo_attack()
 signal ufo_return()
+
+signal use_portal(new_position)

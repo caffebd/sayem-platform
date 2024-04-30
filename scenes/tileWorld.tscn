@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://tileset/tileWorld.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/UFO.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/tilemap/new_tile.png" type="Texture" id=9]
 [ext_resource path="res://scenes/log.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -143,7 +144,7 @@ position = Vector2( 128, 542 )
 position = Vector2( 520, 453 )
 
 [node name="goomba3" parent="enemies" instance=ExtResource( 3 )]
-position = Vector2( 152, 280 )
+position = Vector2( 113, 282 )
 
 [node name="goomba4" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 288, 96 )
@@ -185,3 +186,11 @@ sign_text = "G to attack by ufo"
 position = Vector2( 1000, 608 )
 move_to = Vector2( 0, -100 )
 move_time = 4.0
+
+[node name="portal" parent="." instance=ExtResource( 11 )]
+position = Vector2( 132, 130 )
+linked_portal_path = NodePath("../portal2")
+
+[node name="portal2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 624, 480 )
+linked_portal_path = NodePath("../portal")
